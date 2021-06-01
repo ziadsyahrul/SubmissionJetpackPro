@@ -9,25 +9,10 @@ import com.ziadsyahrul.submissionjetpackpro.util.DataDummy
 
 class DetailViewModel(private val filmRepository: FilmRepository): ViewModel() {
 
-    private lateinit var film: LiveData<DetailModel>
+    fun getMovDetail(movieId: Int): LiveData<DetailModel> =
+        filmRepository.getMovDetail(movieId)
 
-    companion object{
-        const val TV_SHOW = "tvshow"
-        const val MOVIE = "movie"
-    }
-
-    fun setMovie(id: String, category: String){
-        when(category){
-            TV_SHOW -> {
-                film = filmRepository.getTvShowDetail(id)
-            }
-
-            MOVIE -> {
-                film = filmRepository.getMovDetail(id)
-            }
-        }
-    }
-
-    fun getFilmDetail() = film
+    fun getTvDetail(tvId: Int): LiveData<DetailModel> =
+        filmRepository.getTvShowDetail(tvId)
 
 }

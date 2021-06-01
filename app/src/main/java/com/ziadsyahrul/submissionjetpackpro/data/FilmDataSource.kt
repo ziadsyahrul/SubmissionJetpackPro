@@ -8,8 +8,8 @@ import com.ziadsyahrul.submissionjetpackpro.data.local.TvShowModel
 interface FilmDataSource {
 
     fun getMovie(): LiveData<List<MovieModel>>
-    fun getMovDetail(movId: String): LiveData<DetailModel>
+    fun getMovDetail(movId: Int): LiveData<DetailModel>
     fun getTvShow(): LiveData<List<TvShowModel>>
-    fun getTvShowDetail(tvId: String): LiveData<DetailModel>
+    fun getTvShowDetail(tvId: Int): LiveData<DetailModel>
 
 }

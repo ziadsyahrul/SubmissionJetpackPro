@@ -44,7 +44,8 @@ class FilmRepository private constructor(private val remoteData: RemoteDatSource
         return movieResult
     }
 
-    override fun getMovDetail(movId: String): LiveData<DetailModel> {
+
+    override fun getMovDetail(movId: Int): LiveData<DetailModel> {
         val movieDetailResult = MutableLiveData<DetailModel>()
 
         remoteData.getDetailMov(object : RemoteDatSource.LoadDetailMovCallBack {
@@ -86,6 +87,7 @@ class FilmRepository private constructor(private val remoteData: RemoteDatSource
                             tvList.add(tvShow)
                         }
                     }
+                    tvResult.postValue(tvList)
                 }
             }
 
@@ -93,7 +95,8 @@ class FilmRepository private constructor(private val remoteData: RemoteDatSource
         return tvResult
     }
 
-    override fun getTvShowDetail(tvId: String): LiveData<DetailModel> {
+
+    override fun getTvShowDetail(tvId: Int): LiveData<DetailModel> {
         val movDetailResult = MutableLiveData<DetailModel>()
 
         remoteData.getTvshowDetail(object : RemoteDatSource.LoadTvShowDetailCallBack {

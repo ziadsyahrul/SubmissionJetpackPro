@@ -43,7 +43,7 @@ class RemoteDatSource {
         })
     }
 
-    fun getDetailMov(callBack: LoadDetailMovCallBack, movieId: String){
+    fun getDetailMov(callBack: LoadDetailMovCallBack, movieId: Int){
         val client = ApiConfig.getApiService().getMovDetail(movieId, API_KEY)
         client.enqueue(object : Callback<DetailMovResponse> {
             override fun onResponse(
@@ -78,7 +78,7 @@ class RemoteDatSource {
         })
     }
 
-    fun getTvshowDetail(callBack: LoadTvShowDetailCallBack, tvShowId: String){
+    fun getTvshowDetail(callBack: LoadTvShowDetailCallBack, tvShowId: Int){
         val client = ApiConfig.getApiService().getTvDetail(tvShowId, API_KEY)
         client.enqueue(object : Callback<TvShowDetailResponse> {
             override fun onResponse(call: Call<TvShowDetailResponse>, response: Response<TvShowDetailResponse>) {

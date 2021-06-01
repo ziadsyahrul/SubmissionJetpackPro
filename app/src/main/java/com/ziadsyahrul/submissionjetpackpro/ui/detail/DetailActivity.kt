@@ -2,6 +2,7 @@ package com.ziadsyahrul.submissionjetpackpro.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.DetailModel
@@ -26,18 +27,39 @@ class DetailActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
-        val extra = intent.extras
-        if (extra != null){
-            val dataId = extra.getString(EXTRA_FILM)
-            val dataCategory = extra.getString(EXTRA_CATEGORY)
+        val id = intent.getIntExtra(EXTRA_FILM, 0)
+        val type = intent.getStringExtra(EXTRA_CATEGORY)
 
-            if (dataId != null && dataCategory != null){
-                viewModel.setMovie(dataId, dataCategory)
-                viewModel.getFilmDetail().observe(this, { detail ->
-                    populateDetail(detail)
+        if (type.equals("TYPE_MOVIE", ignoreCase = true)) {
+            if (id != null) {
+                viewModel.getMovDetail(id).observe(this, Observer {
+                    populateDetail(it)
                 })
             }
-        }
+
+        } else if (type.equals("TYPE_TVSHOW", ignoreCase = true)){
+            if (id != null) {
+                viewModel.getTvDetail(id).observe(this, Observer {
+                    populateDetail(it)
+                })
+            }
+            }
+
+
+
+//        val extra = intent.extras
+//        if (extra != null){
+//
+//            val dataId = extra.getString(EXTRA_FILM)
+//            val dataCategory = extra.getString(EXTRA_CATEGORY)
+//
+//            if (dataId != null && dataCategory != null){
+//                viewModel.setMovie(dataId, dataCategory)
+//                viewModel.getFilmDetail().observe(this, { detail ->
+//                    populateDetail(detail)
+//                })
+//            }
+//        }
     }
 
     private fun populateDetail(film: DetailModel) {

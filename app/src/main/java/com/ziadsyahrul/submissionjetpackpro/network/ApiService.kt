@@ -15,14 +15,14 @@ interface ApiService {
     fun getMovie(@Query("api_key") apiKey: String) : Call<MovieResponse>
 
     @GET("movie/{id}")
-    fun getMovDetail(@Path("id") movId: String,
+    fun getMovDetail(@Path("id") movId: Int,
                      @Query("api_key") apiKey: String) : Call<DetailMovResponse>
 
     @GET("discover/tv")
     fun getTvShow(@Query("api_key") apiKey: String) : Call<TvShowResponse>
 
     @GET("tv/{id}")
-    fun getTvDetail(@Path("id") tvId: String,
+    fun getTvDetail(@Path("id") tvId: Int,
                     @Query("api_key") apiKey: String) : Call<TvShowDetailResponse>
 
 }

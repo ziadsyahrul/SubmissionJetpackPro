@@ -8,7 +8,6 @@ import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
-import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailViewModel.Companion.MOVIE
 
 class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -42,7 +41,7 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_FILM, movie.id)
-                intent.putExtra(DetailActivity.EXTRA_CATEGORY, MOVIE)
+                intent.putExtra(DetailActivity.EXTRA_CATEGORY, "TYPE_MOVIE")
                 itemView.context.startActivity(intent)
             }
         }
