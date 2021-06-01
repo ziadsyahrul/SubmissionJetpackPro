@@ -7,14 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
+import com.ziadsyahrul.submissionjetpackpro.data.local.TvShowModel
 import com.ziadsyahrul.submissionjetpackpro.databinding.FragmentTvShowBinding
-import com.ziadsyahrul.submissionjetpackpro.model.MovieModel
+import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
 
 class TvShowFragment : Fragment() {
 
     private lateinit var binding: FragmentTvShowBinding
-    private val tvShow: ArrayList<MovieModel> = ArrayList()
+    private val tvShow: ArrayList<TvShowModel> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +31,14 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null){
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
-            val tvShows = viewModel.getTvShow()
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
+            val tvShowAdapter = TvShowAdapter()
 
-            val tvShowAdapter = TvShowAdapter(tvShow)
-            tvShowAdapter.setTvShow(tvShows)
+            viewModel.getTvShow().observe(viewLifecycleOwner, {
+                tvShowAdapter.setTvShow(it)
+                tvShowAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvTvshow){
                 layoutManager = LinearLayoutManager(context)
@@ -42,6 +47,5 @@ class TvShowFragment : Fragment() {
             }
         }
     }
-
 
 }

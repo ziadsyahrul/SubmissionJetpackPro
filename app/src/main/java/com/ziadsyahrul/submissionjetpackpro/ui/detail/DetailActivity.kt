@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
+import com.ziadsyahrul.submissionjetpackpro.data.local.DetailModel
+import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
 import com.ziadsyahrul.submissionjetpackpro.databinding.ActivityDetailBinding
-import com.ziadsyahrul.submissionjetpackpro.model.MovieModel
+import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
 class DetailActivity : AppCompatActivity() {
 
@@ -21,7 +23,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         val extra = intent.extras
         if (extra != null){
@@ -30,17 +33,19 @@ class DetailActivity : AppCompatActivity() {
 
             if (dataId != null && dataCategory != null){
                 viewModel.setMovie(dataId, dataCategory)
-                val film = viewModel.getFilmDetail()
-                populateDetail(film)
+                viewModel.getFilmDetail().observe(this, { detail ->
+                    populateDetail(detail)
+                })
             }
         }
     }
 
-    private fun populateDetail(film: MovieModel) {
+    private fun populateDetail(film: DetailModel) {
         binding.judul.text = film.title
-        binding.description.text = film.description
-        binding.genre.text = film.genre
-        Picasso.get().load(film.poster).into(binding.poster)
+        binding.description.text = film.overview
+        binding.genre.text = film.genres.toString()
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + film.posterPath).into(binding.poster)
+        binding.poster.tag = film.posterPath
     }
 
 

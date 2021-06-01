@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
 import com.ziadsyahrul.submissionjetpackpro.databinding.FragmentMoviesBinding
-import com.ziadsyahrul.submissionjetpackpro.model.MovieModel
+import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
 
 class MoviesFragment : Fragment() {
@@ -28,11 +29,15 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null){
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val movie = viewModel.getMoviess()
 
-            val movAdapter = MovieAdapter(movies)
-            movAdapter.setMovie(movie)
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
+            val movAdapter = MovieAdapter()
+
+            viewModel.getMoviess().observe(viewLifecycleOwner, {
+                movAdapter.setMovie(it)
+                movAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvMovie){
                 layoutManager = LinearLayoutManager(context)
