@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
-import com.ziadsyahrul.submissionjetpackpro.data.local.TvShowModel
 import com.ziadsyahrul.submissionjetpackpro.databinding.FragmentTvShowBinding
 import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
@@ -16,7 +15,6 @@ import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 class TvShowFragment : Fragment() {
 
     private lateinit var binding: FragmentTvShowBinding
-    private val tvShow: ArrayList<TvShowModel> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +33,8 @@ class TvShowFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
 
-            viewModel.getTvShow().observe(viewLifecycleOwner, {
-                tvShowAdapter.setTvShow(it)
+            viewModel.getTvShow().observe(viewLifecycleOwner, Observer{ listTv ->
+                tvShowAdapter.submitList(listTv.data)
                 tvShowAdapter.notifyDataSetChanged()
             })
 

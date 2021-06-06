@@ -1,21 +1,21 @@
 package com.ziadsyahrul.submissionjetpackpro.ui.movie
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
+import com.ziadsyahrul.submissionjetpackpro.R
 import com.ziadsyahrul.submissionjetpackpro.databinding.FragmentMoviesBinding
+import com.ziadsyahrul.submissionjetpackpro.ui.favorite.FavoriteActivity
 import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
 
 class MoviesFragment : Fragment() {
 
     private lateinit var binding: FragmentMoviesBinding
-    private val movies: ArrayList<MovieModel> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +34,8 @@ class MoviesFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movAdapter = MovieAdapter()
 
-            viewModel.getMoviess().observe(viewLifecycleOwner, {
-                movAdapter.setMovie(it)
+            viewModel.getMoviess().observe(viewLifecycleOwner, Observer{ listMovie ->
+                movAdapter.submitList(listMovie.data)
                 movAdapter.notifyDataSetChanged()
             })
 
@@ -47,5 +47,7 @@ class MoviesFragment : Fragment() {
 
         }
     }
+
+
 
 }

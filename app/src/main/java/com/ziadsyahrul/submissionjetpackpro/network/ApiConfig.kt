@@ -1,6 +1,5 @@
 package com.ziadsyahrul.submissionjetpackpro.network
 
-import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

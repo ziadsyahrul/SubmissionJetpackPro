@@ -11,13 +11,13 @@ data class TvShowResponse(
 	val totalPages: Int,
 
 	@field:SerializedName("results")
-	val results: List<ResultsItem>,
+	val results: List<ResultsTv>,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int
 )
 
-data class ResultsItem(
+data class ResultsTv(
 
 	@field:SerializedName("first_air_date")
 	val firstAirDate: String,

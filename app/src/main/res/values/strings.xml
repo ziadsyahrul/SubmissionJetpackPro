@@ -8,4 +8,6 @@
     <string name="imagephoto">imagePhoto</string>
     <string name="movie">Movie</string>
     <string name="tvshow">TvShow</string>
+    <string name="addtofav">addToFav</string>
+    <string name="favorite">favorite</string>
 </resources>

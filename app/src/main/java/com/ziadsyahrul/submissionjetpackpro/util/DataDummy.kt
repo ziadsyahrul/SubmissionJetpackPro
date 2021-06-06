@@ -1,85 +1,92 @@
 package com.ziadsyahrul.submissionjetpackpro.util
 
-import com.ziadsyahrul.submissionjetpackpro.R
-import com.ziadsyahrul.submissionjetpackpro.data.local.DetailModel
-import com.ziadsyahrul.submissionjetpackpro.data.local.MovieModel
-import com.ziadsyahrul.submissionjetpackpro.data.local.TvShowModel
+import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
+import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.*
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.TvShowDetailResponse
 
 object DataDummy {
-    fun getMovie(): List<MovieModel> {
+    fun getMovie(): List<MovieEntity> {
         return listOf(
-            MovieModel(
+            MovieEntity(
                 632357,
                 "The Unholy",
+                "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
-                "2021-03-31",
-            ),
-            MovieModel(
+                "2021-09-14",
+                false),
+            MovieEntity(
                 503736,
                 "Army of the Dead",
+                "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
                 "2021-05-14",
-            ),
-            MovieModel(
+                false),
+            MovieEntity(
                 823855,
                 "I Am All Girls",
+                "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
-                "2021-05-14"
+                "2021-05-14",
+                false
             )
         )
     }
 
-    fun getDetailMov(): DetailModel {
-        return DetailModel(
-            listOf("Horror"),
+    fun getDetailMov(): MovieEntity {
+        return MovieEntity(
             632357,
+            "The Unholy",
             "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
             "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
             "2021-03-31",
-            "The Unholy"
+            false
         )
     }
 
-    fun getTvShow(): List<TvShowModel> {
+    fun getTvShow(): List<TvShowEntity> {
         return listOf(
-            TvShowModel(
+            TvShowEntity(
                 63174,
                 "Lucifer",
-                "2016-01-25",
+                "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                "2016-01-25",
+                false),
+            TvShowEntity(
+                63174,
+                "Lucifer",
+                "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+                "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                "2016-01-25",
+                false
             ),
-            TvShowModel(
+            TvShowEntity(
                 63174,
                 "Lucifer",
-                "2016-01-25",
+                "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
-            ),
-            TvShowModel(
-                63174,
-                "Lucifer",
                 "2016-01-25",
-                "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                false
             )
         )
     }
 
-    fun getTvDetail(): DetailModel {
-        return DetailModel(
-            listOf("Crime", "Sci-Fi & Fantasy"),
+    fun getTvDetail(): TvShowEntity {
+        return TvShowEntity(
             63174,
+            "Lucifer",
             "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
             "/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
             "2016-01-25",
-            "Lucifer"
+            false
         )
     }
 
 
-    fun getResponseMovie(): List<ResultsItem> {
+    fun getResponseMovie(): List<ResultsMovie> {
         return listOf(
-            ResultsItem(
+            ResultsMovie(
                 overview = "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 originalLanguage = "en",
                 originalTitle = "The Unholy",
@@ -90,7 +97,7 @@ object DataDummy {
                 id = 632357
             ),
 
-            ResultsItem(
+            ResultsMovie(
                 overview = "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble: venturing into the quarantine zone to pull off the greatest heist ever attempted.",
                 originalLanguage = "en",
                 originalTitle = "Army of the Dead",
@@ -101,7 +108,7 @@ object DataDummy {
                 id = 503736
             ),
 
-            ResultsItem(
+            ResultsMovie(
                 overview = "A special crimes investigator forms an unlikely bond with a serial killer to bring down a global child sex trafficking syndicate.",
                 originalLanguage = "en",
                 originalTitle = "I Am All Girls",
@@ -175,9 +182,9 @@ object DataDummy {
         )
     }
 
-    fun getResponseTvShow(): List<com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsItem>{
+    fun getResponseTvShow(): List<com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv> {
         return listOf(
-            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsItem(
+            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv(
                 firstAirDate = "2016-01-25",
                 overview = "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 originalLanguage = "en",
@@ -188,7 +195,7 @@ object DataDummy {
                 id = 63174
             ),
 
-            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsItem(
+            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv(
                 firstAirDate = "2016-01-25",
                 overview = "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 originalLanguage = "en",
@@ -199,7 +206,7 @@ object DataDummy {
                 id = 63174
             ),
 
-            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsItem(
+            com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv(
                 firstAirDate = "2016-01-25",
                 overview = "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 originalLanguage = "en",
@@ -212,7 +219,7 @@ object DataDummy {
         )
     }
 
-    fun getResponseDetailTvShow(): TvShowDetailResponse{
+    fun getResponseDetailTvShow(): TvShowDetailResponse {
         return TvShowDetailResponse(
             originalLanguage = "en",
             genres = listOf(
