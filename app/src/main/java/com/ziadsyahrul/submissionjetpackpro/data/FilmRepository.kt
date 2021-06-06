@@ -8,10 +8,8 @@ import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.data.remote.ApiResponse
 import com.ziadsyahrul.submissionjetpackpro.data.remote.RemoteDatSource
-import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.DetailMovResponse
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.ResultsMovie
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv
-import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.TvShowDetailResponse
 import com.ziadsyahrul.submissionjetpackpro.util.AppExecutors
 import com.ziadsyahrul.submissionjetpackpro.vo.Resource
 import java.lang.StringBuilder

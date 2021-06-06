@@ -3,11 +3,9 @@ package com.ziadsyahrul.submissionjetpackpro.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.DetailMovResponse
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.MovieResponse
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.ResultsMovie
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv
-import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.TvShowDetailResponse
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.TvShowResponse
 import com.ziadsyahrul.submissionjetpackpro.network.ApiConfig
 import com.ziadsyahrul.submissionjetpackpro.util.EspressoIdlingResource
@@ -50,27 +48,6 @@ class RemoteDatSource {
         return resultMov
     }
 
-    fun getDetailMov(movieId: Int): LiveData<ApiResponse<DetailMovResponse>>{
-        EspressoIdlingResource.increment()
-        val resultDetailMov = MutableLiveData<ApiResponse<DetailMovResponse>>()
-        val client = ApiConfig.getApiService().getMovDetail(movieId, API_KEY)
-        client.enqueue(object : Callback<DetailMovResponse> {
-            override fun onResponse(
-                call: Call<DetailMovResponse>,
-                response: Response<DetailMovResponse>
-            ) {
-                resultDetailMov.value = ApiResponse.success(response.body() as DetailMovResponse)
-                EspressoIdlingResource.decrement()
-            }
-
-            override fun onFailure(call: Call<DetailMovResponse>, t: Throwable) {
-                Log.d("RemoteData", "onFailure: ${t.message}")
-                EspressoIdlingResource.decrement()
-            }
-
-        })
-        return resultDetailMov
-    }
 
     fun getTvShow(): LiveData<ApiResponse<List<ResultsTv>>>{
         EspressoIdlingResource.increment()
@@ -95,40 +72,4 @@ class RemoteDatSource {
         return resultTvShow
     }
 
-    fun getTvshowDetail(tvShowId: Int): LiveData<ApiResponse<TvShowDetailResponse>>{
-        EspressoIdlingResource.increment()
-        val resultTvDetail = MutableLiveData<ApiResponse<TvShowDetailResponse>>()
-        val client = ApiConfig.getApiService().getTvDetail(tvShowId, API_KEY)
-        client.enqueue(object : Callback<TvShowDetailResponse> {
-            override fun onResponse(call: Call<TvShowDetailResponse>, response: Response<TvShowDetailResponse>) {
-                resultTvDetail.value = ApiResponse.success(response.body() as TvShowDetailResponse)
-                EspressoIdlingResource.decrement()
-
-            }
-
-            override fun onFailure(call: Call<TvShowDetailResponse>, t: Throwable) {
-                Log.d("RemoteData", "onFailure: ${t.message}")
-                EspressoIdlingResource.decrement()
-            }
-
-        })
-        return resultTvDetail
-    }
-
-
-//    interface LoadTvShowDetailCallBack {
-//        fun onDetailTvShowReceived(tvShowResponse: TvShowDetailResponse?)
-//    }
-//
-//    interface LoadTvShowCallBack {
-//        fun onAllTvShowReceived(tvShowResponse: List<com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv>?)
-//    }
-//
-//    interface LoadDetailMovCallBack {
-//        fun onDetailMovReceived(movieResponse: DetailMovResponse?)
-//    }
-//
-//    interface LoadMovieCallBack {
-//        fun onAllMovieReceived(movieResponse: List<ResultsMovie>?)
-//    }
 }

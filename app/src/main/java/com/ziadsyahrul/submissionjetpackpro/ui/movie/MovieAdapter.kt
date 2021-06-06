@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
-import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
 

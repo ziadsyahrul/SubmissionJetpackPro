@@ -7,7 +7,6 @@ import androidx.paging.PagedList
 import com.nhaarman.mockitokotlin2.verify
 import com.ziadsyahrul.submissionjetpackpro.data.FilmRepository
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
-import com.ziadsyahrul.submissionjetpackpro.util.DataDummy
 import com.ziadsyahrul.submissionjetpackpro.vo.Resource
 import org.junit.Test
 

@@ -88,11 +88,12 @@ class MainActivityTest{
      Show Detail Favorite Movie
       * Memastikan rv-movie dalam keadaan tampil
       * Memberi tindakan pada data pertama di rv_movie
-      * memberi tindakan klik pada floatingActionButton
+      * memberi tindakan klik pada floatingactionbutton untuk menambahkan ke favorite
       * memberi tindakan klik pada menu favorite
       * memastikan rv_fav_movie dalam keadaan tampil
       * memberi tindakan klik pada data pertama di rv_fav_movie
       * memastikan data judul,release_date,description,dan poster dalam keadaan tampil
+      * memberi tindakan klik pada floatingactionbutton untuk menghapus dari favorite
      */
     @Test
     fun loadFavoriteMovDetail(){
@@ -110,7 +111,8 @@ class MainActivityTest{
         onView(withId(R.id.release_date)).check(matches(isDisplayed()))
         onView(withId(R.id.description)).check(matches(isDisplayed()))
         onView(withId(R.id.poster)).check(matches(isDisplayed()))
-
+        onView(withId(R.id.floatingActionButton)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
     }
 
     /**
@@ -165,11 +167,12 @@ class MainActivityTest{
      * berpindah ke tab tvShow
      * Memastikan rv_tvshow dalam keadaan tampil
      * Memberi tindakan klik pada data pertama di rv_tvshow
-     * memberi tindakan klik pada floatingActionButton
+     * memberi tindakan klik pada floatingactionbutton untuk menambahkan ke favorite
      * memberi tindakan klik pada menu favorite
      * berpindah ke tab tvshow
      * memberi tindakan klik pada data pertama di rv_fav_tvshow
      * memastikan data judul,release_date,description,dan poster dalam keadaan tampil
+     * Memberikan tindakan klik pada floatingactionbutton untuk menghapus dari favorite
      */
     @Test
     fun loadFavoriteTvDetail(){
@@ -188,5 +191,7 @@ class MainActivityTest{
         onView(withId(R.id.release_date)).check(matches(isDisplayed()))
         onView(withId(R.id.description)).check(matches(isDisplayed()))
         onView(withId(R.id.poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.floatingActionButton)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
     }
 }

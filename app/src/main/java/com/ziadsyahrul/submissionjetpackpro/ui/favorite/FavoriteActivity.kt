@@ -3,7 +3,6 @@ package com.ziadsyahrul.submissionjetpackpro.ui.favorite
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ziadsyahrul.submissionjetpackpro.databinding.ActivityFavoriteBinding
-import com.ziadsyahrul.submissionjetpackpro.ui.main.SectionPagerAdapter
 
 class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

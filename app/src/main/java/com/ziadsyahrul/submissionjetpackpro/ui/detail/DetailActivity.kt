@@ -11,7 +11,6 @@ import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ActivityDetailBinding
 import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
-import com.ziadsyahrul.submissionjetpackpro.vo.Resource
 
 class DetailActivity : AppCompatActivity() {
 

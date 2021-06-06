@@ -10,7 +10,6 @@ import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
-import okhttp3.internal.notifyAll
 
 class TvShowAdapter: PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHolder>(DIFF_CALLBACK) {
 

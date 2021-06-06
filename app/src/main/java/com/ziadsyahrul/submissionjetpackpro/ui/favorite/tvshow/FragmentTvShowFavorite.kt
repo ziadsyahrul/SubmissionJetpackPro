@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ziadsyahrul.submissionjetpackpro.R
 import com.ziadsyahrul.submissionjetpackpro.databinding.FragmentTvShowFavoriteBinding
 import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 

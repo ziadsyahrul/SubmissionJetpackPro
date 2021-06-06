@@ -3,6 +3,7 @@ package com.ziadsyahrul.submissionjetpackpro.ui.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.ziadsyahrul.submissionjetpackpro.data.FilmRepository
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
@@ -15,7 +16,9 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)

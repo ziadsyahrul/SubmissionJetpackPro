@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.ziadsyahrul.submissionjetpackpro.data.FilmRepository
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
-import com.ziadsyahrul.submissionjetpackpro.vo.Resource
 
 class DetailViewModel(private val filmRepository: FilmRepository): ViewModel() {
 

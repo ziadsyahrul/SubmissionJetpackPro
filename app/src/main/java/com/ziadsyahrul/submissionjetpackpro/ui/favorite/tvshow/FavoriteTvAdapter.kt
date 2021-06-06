@@ -10,7 +10,6 @@ import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
-import com.ziadsyahrul.submissionjetpackpro.ui.tvshow.TvShowAdapter
 
 class FavoriteTvAdapter: PagedListAdapter<TvShowEntity, FavoriteTvAdapter.TvShowViewHolder>(DIFF_CALLBACK) {
 
