@@ -1,7 +1,10 @@
 package com.ziadsyahrul.submissionjetpackpro.ui.detail
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -77,7 +80,7 @@ class DetailActivity : AppCompatActivity() {
     private fun setFavorite(movie: MovieEntity?, tvShow: TvShowEntity?) {
         if (movie != null) {
             if (movie.isFav) {
-                showSnackbar("${movie.title} Removed from favorite")
+                showSnackbar("${movie.title} Remove from favorite")
             } else {
                 showSnackbar("${movie.title} Added to favorite")
             }
@@ -85,7 +88,7 @@ class DetailActivity : AppCompatActivity() {
         } else {
             if (tvShow != null) {
                 if (tvShow.isFav) {
-                    showSnackbar("${tvShow.title} Removed from favorite")
+                    showSnackbar("${tvShow.title} Remove from favorite")
                 } else {
                     showSnackbar("${tvShow.title} Added from favorite")
                 }
@@ -97,5 +100,7 @@ class DetailActivity : AppCompatActivity() {
     private fun showSnackbar(message: String) {
         Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT).show()
     }
+
+
 
 }
