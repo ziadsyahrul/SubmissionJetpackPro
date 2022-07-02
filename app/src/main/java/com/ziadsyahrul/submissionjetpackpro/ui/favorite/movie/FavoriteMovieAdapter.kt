@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
+import com.ziadsyahrul.submissionjetpackpro.util.Constant
 
 class FavoriteMovieAdapter: PagedListAdapter<MovieEntity, FavoriteMovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
@@ -43,7 +44,7 @@ class FavoriteMovieAdapter: PagedListAdapter<MovieEntity, FavoriteMovieAdapter.M
             with(binding){
                 tvItemTitle.text = movie.title
                 year.text = movie.releaseDate
-                Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.posterPath).into(imgPoster)
+                Picasso.get().load(Constant.base_url_image + movie.posterPath).into(imgPoster)
             }
 
             itemView.setOnClickListener {

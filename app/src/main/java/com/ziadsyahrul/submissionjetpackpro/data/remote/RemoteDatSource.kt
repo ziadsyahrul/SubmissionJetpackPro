@@ -8,6 +8,7 @@ import com.ziadsyahrul.submissionjetpackpro.data.remote.response.mov.ResultsMovi
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.ResultsTv
 import com.ziadsyahrul.submissionjetpackpro.data.remote.response.tv.TvShowResponse
 import com.ziadsyahrul.submissionjetpackpro.network.ApiConfig
+import com.ziadsyahrul.submissionjetpackpro.util.Constant
 import com.ziadsyahrul.submissionjetpackpro.util.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,8 +16,6 @@ import retrofit2.Response
 
 class RemoteDatSource {
     companion object{
-
-        private val API_KEY = "07f21ca8526a5988e3a4202e8f3cff99"
 
         @Volatile
         private var instance: RemoteDatSource? = null
@@ -31,7 +30,7 @@ class RemoteDatSource {
     fun getMovie(): LiveData<ApiResponse<List<ResultsMovie>>>{
         EspressoIdlingResource.increment()
         val resultMov = MutableLiveData<ApiResponse<List<ResultsMovie>>>()
-        val client = ApiConfig.getApiService().getMovie(API_KEY)
+        val client = ApiConfig.getApiService().getMovie(Constant.API_KEY)
         client.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 resultMov.value = ApiResponse.success(response.body()?.results as List<ResultsMovie>)
@@ -52,7 +51,7 @@ class RemoteDatSource {
     fun getTvShow(): LiveData<ApiResponse<List<ResultsTv>>>{
         EspressoIdlingResource.increment()
         val resultTvShow = MutableLiveData<ApiResponse<List<ResultsTv>>>()
-        val client = ApiConfig.getApiService().getTvShow(API_KEY)
+        val client = ApiConfig.getApiService().getTvShow(Constant.API_KEY)
         client.enqueue(object : Callback<TvShowResponse> {
             override fun onResponse(
                 call: Call<TvShowResponse>,

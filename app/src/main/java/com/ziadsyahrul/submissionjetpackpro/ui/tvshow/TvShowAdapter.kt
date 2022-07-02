@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ItemListBinding
 import com.ziadsyahrul.submissionjetpackpro.ui.detail.DetailActivity
+import com.ziadsyahrul.submissionjetpackpro.util.Constant
 
 class TvShowAdapter: PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHolder>(DIFF_CALLBACK) {
 
@@ -45,7 +46,7 @@ class TvShowAdapter: PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHold
             with(binding){
                 tvItemTitle.text = tvShow.title
                 year.text = tvShow.releaseDate
-                Picasso.get().load("https://image.tmdb.org/t/p/w500/" + tvShow.posterPath).into(imgPoster)
+                Picasso.get().load(Constant.base_url_image + tvShow.posterPath).into(imgPoster)
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)

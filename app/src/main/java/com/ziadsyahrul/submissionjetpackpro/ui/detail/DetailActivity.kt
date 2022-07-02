@@ -13,6 +13,7 @@ import com.ziadsyahrul.submissionjetpackpro.R
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.MovieEntity
 import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 import com.ziadsyahrul.submissionjetpackpro.databinding.ActivityDetailBinding
+import com.ziadsyahrul.submissionjetpackpro.util.Constant
 import com.ziadsyahrul.submissionjetpackpro.viewModel.ViewModelFactory
 
 class DetailActivity : AppCompatActivity() {
@@ -57,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
         val statusFav = movie?.isFav ?: tvShow?.isFav
         val urlImage = movie?.posterPath ?: tvShow?.posterPath
 
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + urlImage)
+        Picasso.get().load(Constant.base_url_image + urlImage)
             .into(binding.poster)
 
         statusFav?.let { status ->
