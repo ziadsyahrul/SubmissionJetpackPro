@@ -24,6 +24,9 @@ data class TvShowEntity(
     @ColumnInfo(name = "releaseDate")
     var releaseDate: String,
 
+    @ColumnInfo(name = "originalLanguange")
+    var originalLanguange: String,
+
     @ColumnInfo(name = "isFav")
     var isFav: Boolean = false
 )

@@ -34,12 +34,12 @@ class DetailActivity : AppCompatActivity() {
         val type = intent.getStringExtra(EXTRA_CATEGORY)
 
         if (type.equals("MOVIE_TYPE", ignoreCase = true)) {
-            viewModel.getMovDetail(id).observe(this, Observer {
+            viewModel.getMovDetail(id).observe(this,  {
                 populateDetail(it, null)
             })
 
         } else if (type.equals("TVSHOW_TYPE", ignoreCase = true)) {
-            viewModel.getTvDetail(id).observe(this, Observer {
+            viewModel.getTvDetail(id).observe(this,  {
                 populateDetail(null, it)
             })
         }
@@ -50,6 +50,7 @@ class DetailActivity : AppCompatActivity() {
         binding.judul.text = movie?.title ?: tvShow?.title
         binding.description.text = movie?.overview ?: tvShow?.overview
         binding.releaseDate.text = movie?.releaseDate ?: tvShow?.releaseDate
+        binding.originalLanguange.text = movie?.originalLanguange ?: tvShow?.originalLanguange
         val statusFav = movie?.isFav ?: tvShow?.isFav
         val urlImage = movie?.posterPath ?: tvShow?.posterPath
 
@@ -65,27 +66,27 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setFavoriteState(status: Boolean){
+    private fun setFavoriteState(status: Boolean) {
         if (status) {
             binding.floatingActionButton.setImageResource(R.drawable.ic_favorite)
-        }else{
+        } else {
             binding.floatingActionButton.setImageResource(R.drawable.ic_favorite_border)
         }
     }
 
-    private fun setFavorite(movie: MovieEntity?, tvShow: TvShowEntity?){
+    private fun setFavorite(movie: MovieEntity?, tvShow: TvShowEntity?) {
         if (movie != null) {
-            if (movie.isFav){
+            if (movie.isFav) {
                 showSnackbar("${movie.title} Removed from favorite")
-            }else {
+            } else {
                 showSnackbar("${movie.title} Added to favorite")
             }
             viewModel.setFavMovie(movie)
         } else {
             if (tvShow != null) {
-                if (tvShow.isFav){
+                if (tvShow.isFav) {
                     showSnackbar("${tvShow.title} Removed from favorite")
-                }else {
+                } else {
                     showSnackbar("${tvShow.title} Added from favorite")
                 }
                 viewModel.setFavTv(tvShow)
@@ -93,7 +94,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSnackbar(message: String){
+    private fun showSnackbar(message: String) {
         Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT).show()
     }
 

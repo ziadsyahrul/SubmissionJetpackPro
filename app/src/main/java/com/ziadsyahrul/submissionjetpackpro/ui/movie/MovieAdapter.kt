@@ -44,6 +44,7 @@ class MovieAdapter: PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>(
             with(binding){
                 tvItemTitle.text = movie.title
                 year.text = movie.releaseDate
+
                 Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.posterPath).into(imgPoster)
 
                 itemView.setOnClickListener {

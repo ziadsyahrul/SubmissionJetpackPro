@@ -14,6 +14,7 @@ object DataDummy {
                 "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
                 "2021-09-14",
+                "en",
                 false),
             MovieEntity(
                 503736,
@@ -21,6 +22,7 @@ object DataDummy {
                 "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
                 "2021-05-14",
+                "in",
                 false),
             MovieEntity(
                 823855,
@@ -28,6 +30,7 @@ object DataDummy {
                 "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
                 "/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
                 "2021-05-14",
+                "en",
                 false
             )
         )
@@ -40,6 +43,7 @@ object DataDummy {
             "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
             "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
             "2021-03-31",
+            "en",
             false
         )
     }
@@ -52,6 +56,7 @@ object DataDummy {
                 "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 "2016-01-25",
+                "en",
                 false),
             TvShowEntity(
                 63174,
@@ -59,6 +64,7 @@ object DataDummy {
                 "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 "2016-01-25",
+                "en",
                 false
             ),
             TvShowEntity(
@@ -67,6 +73,7 @@ object DataDummy {
                 "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 "2016-01-25",
+                "en",
                 false
             )
         )
@@ -79,6 +86,7 @@ object DataDummy {
             "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
             "/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
             "2016-01-25",
+            "en",
             false
         )
     }

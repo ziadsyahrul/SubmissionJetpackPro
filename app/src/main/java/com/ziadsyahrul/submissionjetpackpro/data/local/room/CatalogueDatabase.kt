@@ -9,7 +9,7 @@ import com.ziadsyahrul.submissionjetpackpro.data.local.entity.TvShowEntity
 
 @Database(
     entities = [MovieEntity::class, TvShowEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class CatalogueDatabase: RoomDatabase() {

@@ -24,6 +24,9 @@ data class MovieEntity (
     @ColumnInfo(name = "releaseDate")
     var releaseDate: String,
 
+    @ColumnInfo(name = "originalLanguage")
+    var originalLanguange: String,
+
     @ColumnInfo(name = "isFav")
     var isFav: Boolean = false
 )

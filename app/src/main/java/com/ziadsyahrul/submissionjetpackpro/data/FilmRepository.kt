@@ -61,6 +61,7 @@ class FilmRepository private constructor(
                         overview = dataResponse.overview,
                         posterPath = dataResponse.posterPath,
                         releaseDate = dataResponse.releaseDate,
+                        originalLanguange = dataResponse.originalLanguage,
                         isFav = false
                     )
                     moviesList.add(movies)
@@ -120,6 +121,7 @@ class FilmRepository private constructor(
                         overview = dataResponse.overview,
                         posterPath = dataResponse.posterPath,
                         releaseDate = dataResponse.firstAirDate,
+                        originalLanguange = dataResponse.originalLanguage,
                         isFav = false
                     )
                     tvList.add(tv)
