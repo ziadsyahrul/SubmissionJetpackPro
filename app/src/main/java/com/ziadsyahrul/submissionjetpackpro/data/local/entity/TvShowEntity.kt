@@ -27,6 +27,9 @@ data class TvShowEntity(
     @ColumnInfo(name = "originalLanguange")
     var originalLanguange: String,
 
+    @ColumnInfo(name = "voteAverage")
+    var voteAverage: Double,
+
     @ColumnInfo(name = "isFav")
     var isFav: Boolean = false
 )

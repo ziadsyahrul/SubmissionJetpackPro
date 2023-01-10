@@ -15,7 +15,9 @@ object DataDummy {
                 "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
                 "2021-09-14",
                 "en",
-                false),
+                7.7,
+                false
+            ),
             MovieEntity(
                 503736,
                 "Army of the Dead",
@@ -23,7 +25,9 @@ object DataDummy {
                 "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
                 "2021-05-14",
                 "in",
-                false),
+                7.7,
+                false
+            ),
             MovieEntity(
                 823855,
                 "I Am All Girls",
@@ -31,6 +35,7 @@ object DataDummy {
                 "/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
                 "2021-05-14",
                 "en",
+                7.7,
                 false
             )
         )
@@ -44,6 +49,7 @@ object DataDummy {
             "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
             "2021-03-31",
             "en",
+            7.7,
             false
         )
     }
@@ -57,14 +63,7 @@ object DataDummy {
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 "2016-01-25",
                 "en",
-                false),
-            TvShowEntity(
-                63174,
-                "Lucifer",
-                "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
-                "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
-                "2016-01-25",
-                "en",
+                7.7,
                 false
             ),
             TvShowEntity(
@@ -74,6 +73,17 @@ object DataDummy {
                 "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 "2016-01-25",
                 "en",
+                7.7,
+                false
+            ),
+            TvShowEntity(
+                63174,
+                "Lucifer",
+                "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+                "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+                "2016-01-25",
+                "en",
+                7.7,
                 false
             )
         )
@@ -87,6 +97,7 @@ object DataDummy {
             "/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
             "2016-01-25",
             "en",
+            7.7,
             false
         )
     }
@@ -102,6 +113,7 @@ object DataDummy {
                 genreIds = listOf(27),
                 posterPath = "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
                 releaseDate = "2021-03-31",
+                voteAverage = 7.7,
                 id = 632357
             ),
 
@@ -113,6 +125,7 @@ object DataDummy {
                 genreIds = listOf(28, 27, 53),
                 posterPath = "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
                 releaseDate = "2021-05-14",
+                voteAverage = 7.7,
                 id = 503736
             ),
 
@@ -124,6 +137,7 @@ object DataDummy {
                 genreIds = listOf(80, 18, 9648, 53),
                 posterPath = "/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
                 releaseDate = "2021-05-14",
+                voteAverage = 7.7,
                 id = 823855
             )
 
@@ -200,6 +214,7 @@ object DataDummy {
                 posterPath = "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 originalName = "Lucifer",
                 name = "Lucifer",
+                voteAverage = 7.7,
                 id = 63174
             ),
 
@@ -211,6 +226,7 @@ object DataDummy {
                 posterPath = "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 originalName = "Lucifer",
                 name = "Lucifer",
+                voteAverage = 7.7,
                 id = 63174
             ),
 
@@ -222,6 +238,7 @@ object DataDummy {
                 posterPath = "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
                 originalName = "Lucifer",
                 name = "Lucifer",
+                voteAverage = 7.7,
                 id = 63174
             ),
         )

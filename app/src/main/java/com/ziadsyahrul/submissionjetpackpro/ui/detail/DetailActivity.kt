@@ -38,14 +38,14 @@ class DetailActivity : AppCompatActivity() {
         val type = intent.getStringExtra(EXTRA_CATEGORY)
 
         if (type.equals("MOVIE_TYPE", ignoreCase = true)) {
-            viewModel.getMovDetail(id).observe(this,  {
+            viewModel.getMovDetail(id).observe(this) {
                 populateDetail(it, null)
-            })
+            }
 
         } else if (type.equals("TVSHOW_TYPE", ignoreCase = true)) {
-            viewModel.getTvDetail(id).observe(this,  {
+            viewModel.getTvDetail(id).observe(this) {
                 populateDetail(null, it)
-            })
+            }
         }
 
     }
@@ -54,7 +54,10 @@ class DetailActivity : AppCompatActivity() {
         binding.judul.text = movie?.title ?: tvShow?.title
         binding.description.text = movie?.overview ?: tvShow?.overview
         binding.releaseDate.text = movie?.releaseDate ?: tvShow?.releaseDate
-        binding.originalLanguange.text = movie?.originalLanguange ?: tvShow?.originalLanguange
+        binding.voteAverage.text =
+            "Vote: ${movie?.voteAverage ?: tvShow?.voteAverage.toString()} "
+        binding.originalLanguange.text =
+            "Languange: ${movie?.originalLanguange ?: tvShow?.originalLanguange}"
         val statusFav = movie?.isFav ?: tvShow?.isFav
         val urlImage = movie?.posterPath ?: tvShow?.posterPath
 
@@ -101,7 +104,6 @@ class DetailActivity : AppCompatActivity() {
     private fun showSnackbar(message: String) {
         Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT).show()
     }
-
 
 
 }

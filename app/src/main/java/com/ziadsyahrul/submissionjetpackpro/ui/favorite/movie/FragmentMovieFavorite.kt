@@ -30,11 +30,11 @@ class FragmentMovieFavorite : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getFavoriteMovie().observe(viewLifecycleOwner, { movFavorite ->
-            if (movFavorite != null){
+        viewModel.getFavoriteMovie().observe(viewLifecycleOwner) { movFavorite ->
+            if (movFavorite != null) {
                 adapter.submitList(movFavorite)
             }
-        })
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

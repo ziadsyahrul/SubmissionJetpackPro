@@ -21,7 +21,8 @@ class FakeFilmRepositoryTest constructor(
 
 
     override fun getMovie(): LiveData<Resource<PagedList<MovieEntity>>> {
-        return object : NetworkBoundResource<PagedList<MovieEntity>, List<ResultsMovie>>(appExecutors) {
+        return object :
+            NetworkBoundResource<PagedList<MovieEntity>, List<ResultsMovie>>(appExecutors) {
             override fun loadFromDb(): LiveData<PagedList<MovieEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -41,14 +42,15 @@ class FakeFilmRepositoryTest constructor(
 
             override fun saveCallResult(data: List<ResultsMovie>) {
                 val moviesList = ArrayList<MovieEntity>()
-                for (dataResponse in data){
+                for (dataResponse in data) {
                     val movies = MovieEntity(
                         dataResponse.id,
                         dataResponse.title,
                         dataResponse.overview,
                         dataResponse.releaseDate,
                         dataResponse.posterPath,
-                        false
+                        dataResponse.originalLanguage,
+                        dataResponse.voteAverage
                     )
                     moviesList.add(movies)
                 }
@@ -77,7 +79,8 @@ class FakeFilmRepositoryTest constructor(
     }
 
     override fun getTvShow(): LiveData<Resource<PagedList<TvShowEntity>>> {
-        return object : NetworkBoundResource<PagedList<TvShowEntity>, List<ResultsTv>>(appExecutors) {
+        return object :
+            NetworkBoundResource<PagedList<TvShowEntity>, List<ResultsTv>>(appExecutors) {
             override fun loadFromDb(): LiveData<PagedList<TvShowEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -97,13 +100,15 @@ class FakeFilmRepositoryTest constructor(
 
             override fun saveCallResult(data: List<ResultsTv>) {
                 val tvList = ArrayList<TvShowEntity>()
-                for (dataResponse in data){
+                for (dataResponse in data) {
                     val tv = TvShowEntity(
                         id = dataResponse.id,
                         title = dataResponse.name,
                         overview = dataResponse.overview,
                         posterPath = dataResponse.posterPath,
                         releaseDate = dataResponse.firstAirDate,
+                        originalLanguange = dataResponse.originalLanguage,
+                        voteAverage = dataResponse.voteAverage,
                         isFav = false
                     )
                     tvList.add(tv)

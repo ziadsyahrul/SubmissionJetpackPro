@@ -40,6 +40,9 @@ data class ResultsTv(
 	@field:SerializedName("name")
 	val name: String,
 
+	@field:SerializedName("vote_average")
+	val voteAverage: Double,
+
 	@field:SerializedName("id")
 	val id: Int
 )

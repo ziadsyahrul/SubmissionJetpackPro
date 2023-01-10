@@ -24,7 +24,11 @@ class FilmRepository private constructor(
         @Volatile
         private var instance: FilmRepository? = null
 
-        fun getInstance(remoteData: RemoteDatSource, localDataSource: LocalDataSource, appExecutor: AppExecutors): FilmRepository =
+        fun getInstance(
+            remoteData: RemoteDatSource,
+            localDataSource: LocalDataSource,
+            appExecutor: AppExecutors
+        ): FilmRepository =
             instance ?: synchronized(this) {
                 instance ?: FilmRepository(remoteData, localDataSource, appExecutor).apply {
                     instance = this
@@ -34,7 +38,8 @@ class FilmRepository private constructor(
 
 
     override fun getMovie(): LiveData<Resource<PagedList<MovieEntity>>> {
-        return object : NetworkBoundResource<PagedList<MovieEntity>, List<ResultsMovie>>(appExecutor) {
+        return object :
+            NetworkBoundResource<PagedList<MovieEntity>, List<ResultsMovie>>(appExecutor) {
             override fun loadFromDb(): LiveData<PagedList<MovieEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -54,7 +59,7 @@ class FilmRepository private constructor(
 
             override fun saveCallResult(data: List<ResultsMovie>) {
                 val moviesList = ArrayList<MovieEntity>()
-                for (dataResponse in data){
+                for (dataResponse in data) {
                     val movies = MovieEntity(
                         id = dataResponse.id,
                         title = dataResponse.title,
@@ -62,6 +67,7 @@ class FilmRepository private constructor(
                         posterPath = dataResponse.posterPath,
                         releaseDate = dataResponse.releaseDate,
                         originalLanguange = dataResponse.originalLanguage,
+                        voteAverage = dataResponse.voteAverage,
                         isFav = false
                     )
                     moviesList.add(movies)
@@ -88,13 +94,14 @@ class FilmRepository private constructor(
     }
 
     override fun setMovFavorite(movie: MovieEntity) {
-        appExecutor.diskIO().execute{
+        appExecutor.diskIO().execute {
             localDataSource.setFavMov(movie)
         }
     }
 
     override fun getTvShow(): LiveData<Resource<PagedList<TvShowEntity>>> {
-        return object : NetworkBoundResource<PagedList<TvShowEntity>, List<ResultsTv>>(appExecutor) {
+        return object :
+            NetworkBoundResource<PagedList<TvShowEntity>, List<ResultsTv>>(appExecutor) {
             override fun loadFromDb(): LiveData<PagedList<TvShowEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -114,7 +121,7 @@ class FilmRepository private constructor(
 
             override fun saveCallResult(data: List<ResultsTv>) {
                 val tvList = ArrayList<TvShowEntity>()
-                for (dataResponse in data){
+                for (dataResponse in data) {
                     val tv = TvShowEntity(
                         id = dataResponse.id,
                         title = dataResponse.name,
@@ -122,6 +129,7 @@ class FilmRepository private constructor(
                         posterPath = dataResponse.posterPath,
                         releaseDate = dataResponse.firstAirDate,
                         originalLanguange = dataResponse.originalLanguage,
+                        voteAverage = dataResponse.voteAverage,
                         isFav = false
                     )
                     tvList.add(tv)
@@ -147,7 +155,7 @@ class FilmRepository private constructor(
     }
 
     override fun setTvFavorite(tvShow: TvShowEntity) {
-        appExecutor.diskIO().execute{
+        appExecutor.diskIO().execute {
             localDataSource.setFavTv(tvShow)
         }
     }
